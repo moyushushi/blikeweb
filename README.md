@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# Blike 前端
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+仿B站视频与文章分享平台的前端应用，基于 React 18 + Vite + Material-UI 构建，支持用户认证、视频/文章发布、评论、点赞、关注等功能。
 
-Currently, two official plugins are available:
+## 技术栈
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **框架**: React 18 + TypeScript
+- **构建工具**: Vite
+- **UI 组件库**: Material-UI (MUI) v9
+- **路由**: React Router v6
+- **HTTP 请求**: Axios
+- **富文本编辑器**: TipTap（文章发布）
+- **状态管理**: React Context (UserContext)
+- **视频播放**: HTML5 Video
 
-## React Compiler
+## 主要功能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 用户注册、登录（JWT Token 认证）
+- 视频上传（支持 FFmpeg 自动修复 moov 原子，封面可手动上传或自动截取）
+- 文章发布（富文本编辑器，支持 Markdown 风格）
+- 视频/文章列表展示（瀑布流布局）
+- 视频/文章详情页（播放器、内容展示、评论区）
+- 点赞、关注、取消关注
+- 个人中心（修改密码、更换头像、编辑个人简介）
+- 访客主页（查看用户发布的视频和文章）
+- 响应式设计（适配移动端、平板、桌面）
 
-## Expanding the ESLint configuration
+## 快速开始
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 环境要求
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+
+- npm 或 yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 安装依赖
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```bash
+npm install
